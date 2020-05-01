@@ -1,8 +1,9 @@
 const express = require('express')
-// const config = require('config')
 const mongoose = require('mongoose')
-// const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path')
+// const cors = require('cors');
+// const config = require('config')
 
 dotenv.config()
 
@@ -20,7 +21,7 @@ const PORT = process.env.PORT || 5000
 
 async function start() {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Vladislav:123456zzv@cluster0-zkzbh.gcp.mongodb.net/test?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
